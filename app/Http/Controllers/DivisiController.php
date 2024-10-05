@@ -8,6 +8,6 @@ class DivisiController extends Controller
 {
     public function index()
     {
-        return 'hai';
+        return view('divisi.index');
     }
 }
