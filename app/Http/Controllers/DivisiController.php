@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class DivisiController extends Controller
 {
-    //
+    public function index()
+    {
+        return 'hai';
+    }
 }
