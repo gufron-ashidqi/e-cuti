@@ -10,4 +10,5 @@ class Divisi extends Model
     use HasFactory;
 
     protected $table = 'divisi';
+    protected $guarded = [];
 }

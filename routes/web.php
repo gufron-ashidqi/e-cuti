@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DivisiController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,5 @@ Route::get('/dashboard', function() {
 });
 
 Route::get('/divisi', [DivisiController::class, 'index']);
+Route::get('/divisi/tambah', [DivisiController::class, 'tambah']);
+Route::post('/divisi', [DivisiController::class, 'tambah_proses']);

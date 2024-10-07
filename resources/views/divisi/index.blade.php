@@ -15,7 +15,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <a href="" class="btn btn-sm btn-primary">
+                <a href="{{ url('/divisi/tambah') }}" class="btn btn-sm btn-primary">
                     <i class="fa fa-plus"></i> Tambah Data
                 </a>
             </div>

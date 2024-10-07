@@ -15,13 +15,13 @@
       <li class="header">MAIN NAVIGATION</li>
 
       <li class="active">
-        <a href="#">
+        <a href="{{ url('home') }}">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
 
       <li class="">
-          <a href="#">
+          <a href="{{ url('/divisi') }}">
             <i class="fa fa-industry"></i> <span>Data Divisi</span>
           </a>
       </li>
