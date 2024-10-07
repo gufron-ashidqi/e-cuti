@@ -30,9 +30,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($divisi as $item)
                         <tr>
                             <td>1</td>
-                            <td>IT</td>
+                            <td>{{ $item->nama }}</td>
                             <td>
                                 <a href="#" class="btn btn-xs btn-primary">
                                     <i class="fa fa-edit"></i>
@@ -42,18 +43,7 @@
                                 </a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Marketing</td>
-                            <td>
-                                <a href="#" class="btn btn-xs btn-primary">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-                                <a href="#" class="btn btn-xs btn-danger">
-                                    <i class="fa fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

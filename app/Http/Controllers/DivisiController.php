@@ -9,7 +9,8 @@ class DivisiController extends Controller
 {
     public function index()
     {
-        return view('divisi.index');
+        $divisi = Divisi::all();
+        return view('divisi.index', compact('divisi'));
     }
 
     public function tambah()
@@ -19,8 +20,6 @@ class DivisiController extends Controller
 
     public function tambah_proses(Request $request)
     {
-        // dd($request);
-
         Divisi::create([
             'nama' => $request->nama
         ]);
