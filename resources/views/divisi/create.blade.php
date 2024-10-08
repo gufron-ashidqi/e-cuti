@@ -21,9 +21,12 @@
                             <form action="{{ url('divisi') }}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label>Nama Divisi</label>
-                                    <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Divisi">
-                                </div>
+                                    <label class="control-label">Nama Divisi</label>
+                                    <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukkan Nama Divisi">
+                                    @error('nama')
+                                    <span class="help-block text-red">{{ $message }}</span>
+                                    @enderror
+                                  </div>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                             </form>
                         </div>

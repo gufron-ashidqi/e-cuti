@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
 
 Route::get('logout', function () {
@@ -32,6 +32,10 @@ Route::get('/dashboard', function() {
     return view('layouts.main');
 });
 
-Route::get('/divisi', [DivisiController::class, 'index']);
-Route::get('/divisi/tambah', [DivisiController::class, 'tambah']);
-Route::post('/divisi', [DivisiController::class, 'tambah_proses']);
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/divisi', [DivisiController::class, 'index']);
+    Route::get('/divisi/tambah', [DivisiController::class, 'tambah']);
+    Route::post('/divisi', [DivisiController::class, 'tambah_proses']);
+    Route::get('/divisi/edit/{id}', [DivisiController::class, 'edit']);
+    Route::delete('/divisi/{id}', [DivisiController::class, 'hapus']);
+});
