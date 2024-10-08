@@ -25,6 +25,29 @@
             <i class="fa fa-industry"></i> <span>Data Divisi</span>
           </a>
       </li>
+      <li class="">
+        <a href="{{ url('/karyawan') }}">
+          <i class="fa fa-industry"></i> <span>Data Karyawan</span>
+        </a>
+    </li>
+
+    <li class="">
+      <a href="{{ url('/pengajuancuti') }}">
+        <i class="fa fa-industry"></i> <span>Data pengajuan cuti</span>
+      </a>
+  </li>
+
+  <li class="">
+    <a href="{{ url('/jeniscuti') }}">
+      <i class="fa fa-industry"></i> <span>Data jenis cuti</span>
+    </a>
+</li>
+
+<li class="">
+  <a href="{{ url('/laporan') }}">
+    <i class="fa fa-industry"></i> <span>Data laporan</span>
+  </a>
+</li>
 
     </ul>
   </section>
