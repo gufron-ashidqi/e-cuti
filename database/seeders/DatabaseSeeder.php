@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin123'),
-            'role' => 0,
+            'role' => 1,
         ]);
     }
 }

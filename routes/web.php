@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
+=======
 use App\Http\Controllers\DivisiController;
+use Illuminate\Support\Facades\Auth;
+>>>>>>> bb58327 (crud divisi)
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +19,7 @@ use App\Http\Controllers\DivisiController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
 
 Route::get('logout', function () {
@@ -30,5 +34,20 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/dashboard', function() {
     return view('layouts.main');
 });
+<<<<<<< HEAD
+=======
 
+<<<<<<< HEAD
 Route::get('/divisi', [DivisiController::class, 'index']);
+Route::get('/divisi/tambah', [DivisiController::class, 'tambah']);
+Route::post('/divisi', [DivisiController::class, 'tambah_proses']);
+>>>>>>> bb58327 (crud divisi)
+=======
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/divisi', [DivisiController::class, 'index']);
+    Route::get('/divisi/tambah', [DivisiController::class, 'tambah']);
+    Route::post('/divisi', [DivisiController::class, 'tambah_proses']);
+    Route::get('/divisi/edit/{id}', [DivisiController::class, 'edit']);
+    Route::delete('/divisi/{id}', [DivisiController::class, 'hapus']);
+});
+>>>>>>> e413221 (tambahkan alert, validasi, middleware)
