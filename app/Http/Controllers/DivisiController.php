@@ -27,8 +27,6 @@ class DivisiController extends Controller
         Divisi::create([
             'nama' => $request->nama
         ]);
-
-        // return redirect('/divisi');
         return redirect('/divisi')->with('status', 'Data berhasil disimpan!');
 
     }
@@ -36,7 +34,19 @@ class DivisiController extends Controller
     public function edit($id)
     {
         $divisi = Divisi::find($id);
-        dd($divisi);
+        return view('divisi.edit', compact('divisi'));
+    }
+
+    public function edit_proses(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required',
+        ]);
+
+        Divisi::find($id)->update([
+            'nama' => $request->nama
+        ]);
+        return redirect('divisi')->with('status', 'Data berhasil diupdate!');
     }
 
     public function hapus($id)

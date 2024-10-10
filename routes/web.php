@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DivisiController;
+use App\Models\Divisi;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -33,16 +34,13 @@ Route::get('/dashboard', function() {
     return view('layouts.main');
 });
 
-Route::get('/divisi', [DivisiController::class, 'index']);
-Route::get('/divisi/tambah', [DivisiController::class, 'tambah']);
-Route::post('/divisi', [DivisiController::class, 'tambah_proses']);
-
 Route::group(['middleware' => ['auth']], function () {
     // route divisi
     Route::get('/divisi', [DivisiController::class, 'index']);
     Route::get('/divisi/tambah', [DivisiController::class, 'tambah']);
     Route::post('/divisi', [DivisiController::class, 'tambah_proses']);
     Route::get('/divisi/edit/{id}', [DivisiController::class, 'edit']);
+    Route::put('/divisi/edit/{id}', [DivisiController::class, 'edit_proses']);
     Route::get('/divisi/hapus/{id}', [DivisiController::class, 'hapus']);
 
     // route jenis cuti

@@ -6,7 +6,8 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">Divisi</li>
+        <li class="">Divisi</li>
+        <li class="active">Tambah</li>
     </ol>
 @endsection
 
@@ -27,7 +28,8 @@
                                     <span class="help-block text-red">{{ $message }}</span>
                                     @enderror
                                   </div>
-                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                  <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+                                  <a href="{{ url('divisi') }}" class="btn btn-sm btn-danger">Batal</a>
                             </form>
                         </div>
                     </div>
