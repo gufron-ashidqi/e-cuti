@@ -46,13 +46,17 @@
                                         <a href="{{ url('/divisi/edit', $item->id) }}" class="btn btn-xs btn-primary">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <form class="d-inline" onsubmit="return confirm('Yakin mau hapus data ini?')" action="{{ url('/divisi', $item->id) }}" method="post">
+                                        <a onclick="return confirm('Yakin mau hapus data ini?')" href="{{ url('/divisi/hapus', $item->id) }}" class="btn btn-xs btn-danger">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                        {{-- <form class="d-inline" onsubmit="return confirm('Yakin mau hapus data ini?')"
+                                            action="{{ url('/divisi', $item->id) }}" method="post">
                                             <button type="submit" class="btn btn-xs btn-danger">
                                                 <i class="fa fa-trash"></i>
                                             </button>
-                                              @method('delete')
-                                              @csrf
-                                            </form>
+                                            @method('delete')
+                                            @csrf
+                                        </form> --}}
                                     </td>
                                 </tr>
                             @endforeach

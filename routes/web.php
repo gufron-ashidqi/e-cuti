@@ -42,5 +42,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/divisi/tambah', [DivisiController::class, 'tambah']);
     Route::post('/divisi', [DivisiController::class, 'tambah_proses']);
     Route::get('/divisi/edit/{id}', [DivisiController::class, 'edit']);
-    Route::delete('/divisi/{id}', [DivisiController::class, 'hapus']);
+    // Route::delete('/divisi/{id}', [DivisiController::class, 'hapus']);
+    Route::get('/divisi/hapus/{id}', [DivisiController::class, 'hapus']);
 });
