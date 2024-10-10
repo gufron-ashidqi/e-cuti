@@ -14,7 +14,7 @@
     @if (session('status'))
         <div class="alert alert-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h4><i class="icon fa fa-check"></i> Success!</h4>
+            <h4><i class="icon fa fa-check"></i>Success!</h4>
             {{ session('status') }}
         </div>
     @endif
@@ -49,14 +49,6 @@
                                         <a onclick="return confirm('Yakin mau hapus data ini?')" href="{{ url('/divisi/hapus', $item->id) }}" class="btn btn-xs btn-danger">
                                             <i class="fa fa-trash"></i>
                                         </a>
-                                        {{-- <form class="d-inline" onsubmit="return confirm('Yakin mau hapus data ini?')"
-                                            action="{{ url('/divisi', $item->id) }}" method="post">
-                                            <button type="submit" class="btn btn-xs btn-danger">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
-                                            @method('delete')
-                                            @csrf
-                                        </form> --}}
                                     </td>
                                 </tr>
                             @endforeach

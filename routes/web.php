@@ -38,10 +38,12 @@ Route::get('/divisi/tambah', [DivisiController::class, 'tambah']);
 Route::post('/divisi', [DivisiController::class, 'tambah_proses']);
 
 Route::group(['middleware' => ['auth']], function () {
+    // route divisi
     Route::get('/divisi', [DivisiController::class, 'index']);
     Route::get('/divisi/tambah', [DivisiController::class, 'tambah']);
     Route::post('/divisi', [DivisiController::class, 'tambah_proses']);
     Route::get('/divisi/edit/{id}', [DivisiController::class, 'edit']);
-    // Route::delete('/divisi/{id}', [DivisiController::class, 'hapus']);
     Route::get('/divisi/hapus/{id}', [DivisiController::class, 'hapus']);
+
+    // route jenis cuti
 });

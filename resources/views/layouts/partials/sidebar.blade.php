@@ -22,31 +22,32 @@
 
         <li class="{{ Request::is('divisi*') ? 'active' : '' }}">
             <a href="{{ url('/divisi') }}">
-                <i class="fa fa-industry"></i> <span>Data Divisi</span>
-            </a>
-        </li>
-
-        <li class="{{ Request::is('karyawan') ? 'active' : '' }}">
-            <a href="{{ url('/karyawan') }}">
-                <i class="fa fa-industry"></i> <span>Data Karyawan</span>
-            </a>
-        </li>
-
-        <li class="{{ Request::is('pengajuancuti') ? 'active' : '' }}">
-            <a href="{{ url('/pengajuancuti') }}">
-                <i class="fa fa-industry"></i> <span>Data pengajuan cuti</span>
+                <i class="fa fa-sitemap"></i> <span>Divisi</span>
             </a>
         </li>
 
         <li class="{{ Request::is('jeniscuti') ? 'active' : '' }}">
             <a href="{{ url('/jeniscuti') }}">
-                <i class="fa fa-industry"></i> <span>Data jenis cuti</span>
+                <i class="fa fa-calendar-times-o"></i> <span>Jenis Cuti</span>
             </a>
         </li>
 
+        <li class="{{ Request::is('karyawan') ? 'active' : '' }}">
+            <a href="{{ url('/karyawan') }}">
+                <i class="fa fa-users"></i> <span>Data Karyawan</span>
+            </a>
+        </li>
+
+        <li class="{{ Request::is('pengajuancuti') ? 'active' : '' }}">
+            <a href="{{ url('/pengajuancuti') }}">
+                <i class="fa fa-clipboard"></i> <span>Pengajuan cuti</span>
+            </a>
+        </li>
+
+
         <li class="">
             <a href="{{ url('/laporan') }}">
-                <i class="fa fa-industry"></i> <span>Data laporan</span>
+                <i class="fa fa-file"></i> <span>Laporan</span>
             </a>
         </li>
 
