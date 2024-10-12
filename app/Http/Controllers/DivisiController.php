@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Divisi;
 use Illuminate\Http\Request;
+use Alert;
 
 class DivisiController extends Controller
 {
@@ -27,7 +28,10 @@ class DivisiController extends Controller
         Divisi::create([
             'nama' => $request->nama
         ]);
-        return redirect('/divisi')->with('status', 'Data berhasil disimpan!');
+        // return redirect('/divisi')->with('status', 'Data berhasil disimpan!');
+        alert()->success('Sukses','Data berhasil disimpan!');
+        return redirect('/divisi');
+
 
     }
 

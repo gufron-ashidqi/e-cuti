@@ -48,6 +48,7 @@
 
             <!-- Main content -->
             <section class="content">
+                @include('sweetalert::alert')
                 @yield('content')
             </section>
             <!-- /.content -->
@@ -55,9 +56,9 @@
         <!-- /.content-wrapper -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
-                <b>Version</b> 2.4.13
+                <b>Version</b> 1.0
             </div>
-            <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+            <strong>Copyright &copy; 2024 <span class="text-primary">SIPECUT</span> All rights
             reserved.
         </footer>
         <!-- Add the sidebar's background. This div must be placed

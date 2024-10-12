@@ -2,27 +2,21 @@
 
 @section('content-header')
     <h1>
-        Divisi
+        Karyawan
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">Divisi</li>
+        <li class="active">Karyawan</li>
     </ol>
 @endsection
 
 @section('content')
-    {{-- @if (session('status'))
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            {{ session('status') }}
-        </div>
-    @endif --}}
 
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="{{ url('/divisi/tambah') }}" class="btn btn-sm btn-primary">
+                    <a href="{{ url('/karyawan/create') }}" class="btn btn-sm btn-primary">
                         <i class="fa fa-plus"></i> Tambah Data
                     </a>
                 </div>
@@ -32,20 +26,26 @@
                         <thead>
                             <tr>
                                 <th style="width: 50px">No</th>
-                                <th>Nama Divisi</th>
+                                <th>Nama</th>
+                                <th>NIK</th>
+                                <th>Divisi</th>
+                                <th>No. Telp</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($divisi as $item)
+                            @foreach ($karyawan as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->nik }}</td>
+                                    <td>{{ $item->divisi->nama }}</td>
+                                    <td>{{ $item->telepon }}</td> 
                                     <td>
-                                        <a href="{{ url('/divisi/edit', $item->id) }}" class="btn btn-xs btn-primary">
+                                        <a href="{{ url('karyawan/' . $item->id . '/edit') }}" class="btn btn-xs btn-primary">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a onclick="return confirm('Yakin mau hapus data ini?')" href="{{ url('/divisi/hapus', $item->id) }}" class="btn btn-xs btn-danger">
+                                        <a onclick="return confirm('Yakin mau hapus data ini?')" href="{{ url('/karyawan', $item->id) }}" class="btn btn-xs btn-danger">
                                             <i class="fa fa-trash"></i>
                                         </a>
                                     </td>

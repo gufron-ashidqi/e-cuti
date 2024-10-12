@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\JenisCutiController;
+use App\Http\Controllers\KaryawanController;
 use App\Models\Divisi;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,4 +48,8 @@ Route::group(['middleware' => ['auth']], function () {
     // route jenis cuti
     Route::resource('jenis-cuti', JenisCutiController::class);
     Route::get('/jenis-cuti/{jenis_cuti}', [JenisCutiController::class, 'destroy']);
+
+    Route::resource('karyawan', KaryawanController::class);
+
+
 });
