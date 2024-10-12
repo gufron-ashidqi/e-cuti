@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DivisiController;
+use App\Http\Controllers\JenisCutiController;
 use App\Models\Divisi;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,4 +45,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/divisi/hapus/{id}', [DivisiController::class, 'hapus']);
 
     // route jenis cuti
+    Route::resource('jenis-cuti', JenisCutiController::class);
+    Route::get('/jenis-cuti/{jenis_cuti}', [JenisCutiController::class, 'destroy']);
 });

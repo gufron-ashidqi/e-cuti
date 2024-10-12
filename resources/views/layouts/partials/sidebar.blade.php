@@ -26,8 +26,8 @@
             </a>
         </li>
 
-        <li class="{{ Request::is('jeniscuti') ? 'active' : '' }}">
-            <a href="{{ url('/jeniscuti') }}">
+        <li class="{{ Request::is('jenis-cuti') ? 'active' : '' }}">
+            <a href="{{ url('/jenis-cuti') }}">
                 <i class="fa fa-calendar-times-o"></i> <span>Jenis Cuti</span>
             </a>
         </li>
