@@ -50,6 +50,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/jenis-cuti/{jenis_cuti}', [JenisCutiController::class, 'destroy']);
 
     Route::resource('karyawan', KaryawanController::class);
-
+    Route::get('/karyawan/{karyawan}', [KaryawanController::class, 'destroy']);
 
 });

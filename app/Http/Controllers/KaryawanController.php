@@ -46,6 +46,7 @@ class KaryawanController extends Controller
         $request->validate([
             'nama' => 'required',
             'nik' => 'required',
+            'tanggal_masuk' => 'required',
             'divisi_id' => 'required',
             'telepon' => 'required'
         ]);
@@ -54,8 +55,10 @@ class KaryawanController extends Controller
             'user_id' => Auth::user()->id,
             'nama' => $request->nama,
             'nik' => $request->nik,
+            'tanggal_masuk' => $request->tanggal_masuk,
             'divisi_id' => $request->divisi_id,
             'telepon' => $request->telepon,
+            'jumlah_cuti' => 6
         ]);
 
         User::create([
@@ -87,7 +90,8 @@ class KaryawanController extends Controller
      */
     public function edit(Karyawan $karyawan)
     {
-        //
+        $divisi = Divisi::all();
+        return view('karyawan.edit', compact('karyawan', 'divisi'));
     }
 
     /**
@@ -99,7 +103,24 @@ class KaryawanController extends Controller
      */
     public function update(Request $request, Karyawan $karyawan)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'nik' => 'required',
+            'tanggal_masuk' => 'required',
+            'divisi_id' => 'required',
+            'telepon' => 'required'
+        ]);
+
+        $karyawan->update([
+            'nama' => $request->nama,
+            'nik' => $request->nik,
+            'tanggal_masuk' => $request->tanggal_masuk,
+            'divisi_id' => $request->divisi_id,
+            'telepon' => $request->telepon,
+        ]);
+
+        alert()->success('Sukses','Data berhasil disimpan!');
+        return redirect('/karyawan');
     }
 
     /**
@@ -110,6 +131,8 @@ class KaryawanController extends Controller
      */
     public function destroy(Karyawan $karyawan)
     {
-        //
+        $karyawan->delete();
+        alert()->success('Sukses','Data berhasil dihapus!');
+        return redirect('/karyawan');
     }
 }

@@ -28,8 +28,10 @@
                                 <th style="width: 50px">No</th>
                                 <th>Nama</th>
                                 <th>NIK</th>
+                                <th>Tanggal Masuk</th>
                                 <th>Divisi</th>
                                 <th>No. Telp</th>
+                                <th>Jumlah Cuti</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -39,8 +41,10 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->nama }}</td>
                                     <td>{{ $item->nik }}</td>
+                                    <td>{{ $item->tanggal_masuk}}</td> 
                                     <td>{{ $item->divisi->nama }}</td>
                                     <td>{{ $item->telepon }}</td> 
+                                    <td>{{ $item->jumlah_cuti}}</td> 
                                     <td>
                                         <a href="{{ url('karyawan/' . $item->id . '/edit') }}" class="btn btn-xs btn-primary">
                                             <i class="fa fa-edit"></i>
