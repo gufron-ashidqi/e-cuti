@@ -20,36 +20,59 @@
             </a>
         </li>
 
-        <li class="{{ Request::is('divisi*') ? 'active' : '' }}">
-            <a href="{{ url('/divisi') }}">
-                <i class="fa fa-sitemap"></i> <span>Divisi</span>
-            </a>
-        </li>
+        @if (Auth::user()->role == 1)
+            <li class="{{ Request::is('divisi*') ? 'active' : '' }}">
+                <a href="{{ url('/divisi') }}">
+                    <i class="fa fa-sitemap"></i> <span>Divisi</span>
+                </a>
+            </li>
 
-        <li class="{{ Request::is('jenis-cuti') ? 'active' : '' }}">
-            <a href="{{ url('/jenis-cuti') }}">
-                <i class="fa fa-calendar-times-o"></i> <span>Jenis Cuti</span>
-            </a>
-        </li>
+            <li class="{{ Request::is('jenis-cuti') ? 'active' : '' }}">
+                <a href="{{ url('/jenis-cuti') }}">
+                    <i class="fa fa-calendar-times-o"></i> <span>Jenis Cuti</span>
+                </a>
+            </li>
 
-        <li class="{{ Request::is('karyawan') ? 'active' : '' }}">
-            <a href="{{ url('/karyawan') }}">
-                <i class="fa fa-users"></i> <span>Data Karyawan</span>
-            </a>
-        </li>
+            <li class="{{ Request::is('karyawan') ? 'active' : '' }}">
+                <a href="{{ url('/karyawan') }}">
+                    <i class="fa fa-users"></i> <span>Data Karyawan</span>
+                </a>
+            </li>
 
-        <li class="{{ Request::is('pengajuancuti') ? 'active' : '' }}">
-            <a href="{{ url('/pengajuancuti') }}">
-                <i class="fa fa-clipboard"></i> <span>Pengajuan cuti</span>
-            </a>
-        </li>
+            <li class="{{ Request::is('pengajuan-cuti') ? 'active' : '' }}">
+                <a href="{{ url('/pengajuan-cuti') }}">
+                    <i class="fa fa-clipboard"></i> <span>Pengajuan cuti</span>
+                </a>
+            </li>
 
+            <li class="">
+                <a href="{{ url('/laporan') }}">
+                    <i class="fa fa-file"></i> <span>Laporan</span>
+                </a>
+            </li>
+        @endif
 
-        <li class="">
-            <a href="{{ url('/laporan') }}">
-                <i class="fa fa-file"></i> <span>Laporan</span>
-            </a>
-        </li>
+        @if (Auth::user()->role == 4)
+            <li class="">
+                <a href="{{ url('/pengajuan-cuti') }}">
+                    <i class="fa fa-clipboard"></i> <span>Pengajuan Cuti</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="{{ url('/riwayat-cuti') }}">
+                    <i class="fa fa-history"></i> <span>Riwayat Cuti</span>
+                </a>
+            </li>
+        @endif
+
+        @if (Auth::user()->role == 2)
+            <li class="">
+                <a href="{{ url('/pengajuan-cuti') }}">
+                    <i class="fa fa-clipboard"></i> <span>Pengajuan Cuti</span>
+                </a>
+            </li>
+        @endif
 
     </ul>
 </section>

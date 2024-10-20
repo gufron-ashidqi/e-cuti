@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\JenisCutiController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\PengajuanCutiController;
 use App\Models\Divisi;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,8 +37,7 @@ Route::get('/dashboard', function() {
     return view('layouts.main');
 });
 
-Route::group(['middleware' => ['auth']], function () {
-    // route divisi
+Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/divisi', [DivisiController::class, 'index']);
     Route::get('/divisi/tambah', [DivisiController::class, 'tambah']);
     Route::post('/divisi', [DivisiController::class, 'tambah_proses']);
@@ -45,11 +45,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/divisi/edit/{id}', [DivisiController::class, 'edit_proses']);
     Route::get('/divisi/hapus/{id}', [DivisiController::class, 'hapus']);
 
-    // route jenis cuti
     Route::resource('jenis-cuti', JenisCutiController::class);
     Route::get('/jenis-cuti/{jenis_cuti}', [JenisCutiController::class, 'destroy']);
 
     Route::resource('karyawan', KaryawanController::class);
     Route::get('/karyawan/{karyawan}', [KaryawanController::class, 'destroy']);
 
+    Route::resource('pengajuan-cuti', PengajuanCutiController::class);
+});
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('pengajuan-cuti', PengajuanCutiController::class);
 });
