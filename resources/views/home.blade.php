@@ -25,16 +25,9 @@
                     <li> NIK : {{ $karyawan->karyawan->nik }} </li>
                     <li> Tanggal Masuk : {{ $karyawan->karyawan->tanggal_masuk }} </li>
                     <li> Sisa Cuti : 
-                        {{-- @dd($cuti->status); --}}
-                        @if ($cuti->status = 'reject')
-                        {{ $karyawan->karyawan->jumlah_cuti - $cuti->jumlah_hari_cuti_reject }}
-                        @elseif($cuti->status = 'pending')
-                        {{ $karyawan->karyawan->jumlah_cuti - $cuti->jumlah_hari_cuti_pending }}
-                        @else
-                        {{ $karyawan->karyawan->jumlah_cuti - $cuti->jumlah_hari_cuti }}
-                        @endif
+                        {{ $karyawan->karyawan->jumlah_cuti }}
                     </li>
-                    {{-- PR = jumlah cuti belum sesuai --}}
+                    {{-- $cuti->jumlah_hari_cuti --}}
                 </ul>
             </div>
         </div>
