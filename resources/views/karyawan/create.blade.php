@@ -65,7 +65,7 @@
                                     <span class="help-block text-red">{{ $message }}</span>
                                     @enderror
                                 </div>
-
+                                
                                   <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                                   <a href="{{ url('karyawan') }}" class="btn btn-sm btn-danger">Batal</a>
                             </form>

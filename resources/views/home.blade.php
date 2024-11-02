@@ -27,7 +27,6 @@
                     <li> Sisa Cuti : 
                         {{ $karyawan->karyawan->jumlah_cuti }}
                     </li>
-                    {{-- $cuti->jumlah_hari_cuti --}}
                 </ul>
             </div>
         </div>

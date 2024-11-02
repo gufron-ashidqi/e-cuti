@@ -54,7 +54,9 @@ class PengajuanCutiController extends Controller
         ]);
 
         $karyawan = Auth::user()->karyawan;
-        $sisaCuti = $karyawan->sisa_cuti;
+        $sisaCuti = $karyawan->jumlah_cuti;
+
+        // dd($sisaCuti);
 
         // Hitung jumlah hari cuti yang diinginkan
         $tanggalMulai = Carbon::parse($request->tanggal_mulai);
@@ -74,6 +76,8 @@ class PengajuanCutiController extends Controller
             alert()->error('Error','Jumlah hari cuti yang diajukan melebihi sisa cuti yang tersedia.');
             return redirect()->back();
         }
+
+        // dd($request);
 
 
         // Simpan pengajuan cuti jika validasi lolos

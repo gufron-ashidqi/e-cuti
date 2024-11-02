@@ -18,9 +18,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'karyawan_id',
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -42,14 +44,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // public function karyawan()
+    // {
+    //     return $this->hasOne(Karyawan::class);
+    // }
+
+    // public function k()
+    // {
+    //     return $this->belongsTo(karyawan::class);
+    // }
+
     public function karyawan()
     {
-        return $this->hasOne(Karyawan::class);
-    }
-
-    public function k()
-    {
-        return $this->belongsTo(karyawan::class);
+        return $this->belongsTo(Karyawan::class);
     }
 
     public function pengajuanCuti()

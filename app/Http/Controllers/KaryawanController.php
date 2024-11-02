@@ -6,8 +6,8 @@ use App\Models\Karyawan;
 use App\Models\Divisi;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KaryawanController extends Controller
 {
@@ -52,7 +52,7 @@ class KaryawanController extends Controller
         ]);
 
         $karyawan = Karyawan::create([
-            'user_id' => Auth::user()->id,
+            // 'user_id' => Auth::user()->id,
             'nama' => $request->nama,
             'nik' => $request->nik,
             'tanggal_masuk' => $request->tanggal_masuk,
@@ -61,11 +61,14 @@ class KaryawanController extends Controller
             'jumlah_cuti' => 6
         ]);
 
+        // dd($karyawan);
+
         User::create([
+            'karyawan_id' => $karyawan->id,
             'name' => $karyawan->nama,
             'email' => $karyawan->nik . '@gmail.com',
             'password' => Hash::make('user1234'),
-            // PR : tambah role pada saat tambah karyawan
+            'role' => 4
         ]);
 
         alert()->success('Sukses','Data berhasil disimpan!');

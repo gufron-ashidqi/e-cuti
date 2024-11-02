@@ -11,6 +11,11 @@ class Karyawan extends Model
     protected $table = 'karyawan';
     protected $guarded = [];
 
+    public function user()
+    {
+        return $this->hasOne(User::class, 'karyawan_id');
+    }
+
     public function divisi()
     {
         return $this->belongsTo(divisi::class);
