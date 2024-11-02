@@ -65,6 +65,7 @@ class KaryawanController extends Controller
             'name' => $karyawan->nama,
             'email' => $karyawan->nik . '@gmail.com',
             'password' => Hash::make('user1234'),
+            // PR : tambah role pada saat tambah karyawan
         ]);
 
         alert()->success('Sukses','Data berhasil disimpan!');

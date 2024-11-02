@@ -42,7 +42,7 @@
             <form action="{{ route('login') }}" method="post">
                 @csrf
                 <div class="form-group has-feedback">
-                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email">
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" autofocus>
                     @error('email')
                         <span class="invalid-feedback text-danger" role="alert">
                             <strong>{{ $message }}</strong>

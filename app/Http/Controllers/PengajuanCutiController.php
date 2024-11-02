@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\PengajuanCuti;
+use App\Models\User;
+use App\Models\JenisCuti;
 use Illuminate\Http\Request;
+use Auth;
 
 class PengajuanCutiController extends Controller
 {
@@ -25,8 +28,12 @@ class PengajuanCutiController extends Controller
      */
     public function create()
     {
-        return view('pengajuan_cuti.create');
+        $karyawan = Auth::user()->karyawan;
+        $nik = $karyawan->nik;
+        $nama = $karyawan->nama;
 
+        $jenis_cuti = JenisCuti::all();
+        return view('pengajuan_cuti.create', compact('nik', 'nama', 'jenis_cuti'));
     }
 
     /**
@@ -37,7 +44,28 @@ class PengajuanCutiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'tanggal_mulai' => 'required',
+            'tanggal_akhir' => 'required',
+            'keterangan' => 'required',
+            'jenis_cuti_id' => 'required',
+            
+        ]);
+
+        $karyawan = Auth::user()->karyawan;
+        $karyawan_id = $karyawan->id;
+
+        PengajuanCuti::create([
+            'jenis_cuti_id' => $request->jenis_cuti_id,
+            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_akhir' => $request->tanggal_akhir,
+            'keterangan' => $request->keterangan,
+            'karyawan_id' => $karyawan_id,
+            'status' => 'pending',
+
+        ]);
+        return redirect('/pengajuan-cuti')->with('status', 'Data berhasil disimpan!');
     }
 
     /**

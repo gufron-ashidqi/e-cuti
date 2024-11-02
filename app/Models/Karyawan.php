@@ -16,4 +16,9 @@ class Karyawan extends Model
         return $this->belongsTo(divisi::class);
     }
 
+    public function pengajuanCuti()
+    {
+        return $this->hasMany(PengajuanCuti::class);
+    }
+
 }

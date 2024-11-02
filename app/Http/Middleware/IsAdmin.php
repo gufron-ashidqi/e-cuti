@@ -18,7 +18,7 @@ class IsAdmin
     public function handle(Request $request, Closure $next)
     {
         // Pastikan user terautentikasi dan memiliki role 0 (admin)
-        if (Auth::check() && Auth::user()->role === 1) {
+        if (Auth::check() && Auth::user()->role == 1) {
             return $next($request);
         }
 

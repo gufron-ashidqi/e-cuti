@@ -26,25 +26,29 @@
                         <thead>
                             <tr>
                                 <th style="width: 50px">No</th>
-                                <th>Karyawan Id</th>
-                                <th>Jenis Cuti </th>
+                                <th>Nama Karyawan</th>
+                                <th>NIK</th>
+                                <th>Jenis Cuti</th>
                                 <th>Tanggal Mulai</th>
                                 <th>Tanggal Akhir</th>
                                 <th>Jumlah Cuti</th>
                                 <th>Keterangan</th>
                                 <th>Status</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($pengajuan_cuti as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->nik }}</td>
-                                    <td>{{ $item->tanggal_masuk}}</td> 
-                                    <td>{{ $item->divisi->nama }}</td>
-                                    <td>{{ $item->telepon }}</td> 
-                                    <td>{{ $item->jumlah_cuti}}</td> 
+                                    <td>{{ $item->karyawan->nama }}</td>
+                                    <td>{{ $item->karyawan->nik }}</td>
+                                    <td>{{ $item->jenis_cuti->nama }}</td> 
+                                    <td>{{ $item->tanggal_mulai }}</td> 
+                                    <td>{{ $item->tanggal_akhir }}</td>
+                                    <td>{{ $item->jumlah_hari_cuti }}</td>
+                                    <td>{{ $item->keterangan }}</td>
+                                    <td>{{ $item->status }}</td> 
                                     <td>
                                         <a href="{{ url('pengajuan-cuti/' . $item->id . '/edit') }}" class="btn btn-xs btn-primary">
                                             <i class="fa fa-edit"></i>

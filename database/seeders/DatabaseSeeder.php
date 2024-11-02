@@ -27,12 +27,12 @@ class DatabaseSeeder extends Seeder
         */
 
         DB::table('users')->insert([
-            // [
-            //     'name' => 'admin',
-            //     'email' => 'admin@gmail.com',
-            //     'password' => Hash::make('admin123'),
-            //     'role' => 1,
-            // ],
+            [
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('admin123'),
+                'role' => 1,
+            ],
             [
                 'name' => 'supervisor',
                 'email' => 'supervisor@gmail.com',
