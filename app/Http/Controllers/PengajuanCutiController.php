@@ -102,6 +102,26 @@ class PengajuanCutiController extends Controller
         //
     }
 
+    public function approve(Request $request, $id)
+    {
+        PengajuanCuti::find($id)->update([
+            'status' => 'approved',
+
+        ]);
+
+        return redirect('/approval-cuti')->with('status', 'Data berhasil ubah!');
+    }
+
+    public function reject($id)
+    {
+        PengajuanCuti::find($id)->update([
+            'status' => 'reject',
+
+        ]);
+
+        return redirect('/approval-cuti')->with('status', 'Data berhasil ubah!');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

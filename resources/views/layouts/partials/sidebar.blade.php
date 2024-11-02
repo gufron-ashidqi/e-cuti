@@ -53,13 +53,13 @@
         @endif
 
         @if (Auth::user()->role == 4)
-            <li class="">
+            <li class="{{ Request::is('pengajuan-cuti') ? 'active' : '' }}">
                 <a href="{{ url('/pengajuan-cuti') }}">
                     <i class="fa fa-clipboard"></i> <span>Pengajuan Cuti</span>
                 </a>
             </li>
 
-            <li class="">
+            <li class="{{ Request::is('riwayat-cuti') ? 'active' : '' }}">
                 <a href="{{ url('/riwayat-cuti') }}">
                     <i class="fa fa-history"></i> <span>Riwayat Cuti</span>
                 </a>
@@ -67,9 +67,9 @@
         @endif
 
         @if (Auth::user()->role == 2)
-            <li class="">
-                <a href="{{ url('/pengajuan-cuti') }}">
-                    <i class="fa fa-clipboard"></i> <span>Pengajuan Cuti</span>
+            <li class="{{ Request::is('approval-cuti') ? 'active' : '' }}">
+                <a href="{{ url('/approval-cuti') }}">
+                    <i class="fa fa-clipboard"></i> <span>Approval Cuti</span>
                 </a>
             </li>
         @endif

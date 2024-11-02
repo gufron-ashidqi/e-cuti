@@ -6,6 +6,7 @@ use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\JenisCutiController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PengajuanCutiController;
+use App\Http\Controllers\ApprovalCutiController;
 use App\Models\Divisi;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,4 +57,9 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('pengajuan-cuti', PengajuanCutiController::class);
+    Route::get('approval-cuti', [ApprovalCutiController::class, 'index']);
+    Route::get('approval-cuti/{id}', [PengajuanCutiController::class, 'approve']);
+    Route::get('reject-cuti/{id}', [PengajuanCutiController::class, 'reject']);
+
+    
 });

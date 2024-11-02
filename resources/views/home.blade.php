@@ -12,6 +12,7 @@
     </div>
 </div>
 
+@if (Auth::user()->role == 4)
 <div class="row">
     <div class="col-md-12">
         <div class="box">
@@ -23,10 +24,21 @@
                     <li> Nama : {{ $karyawan->karyawan->nama }} </li>
                     <li> NIK : {{ $karyawan->karyawan->nik }} </li>
                     <li> Tanggal Masuk : {{ $karyawan->karyawan->tanggal_masuk }} </li>
-                    <li> Sisa Cuti : {{ $karyawan->karyawan->jumlah_cuti - $cuti->jumlah_hari_cuti }} </li>
+                    <li> Sisa Cuti : 
+                        {{-- @dd($cuti->status); --}}
+                        @if ($cuti->status = 'reject')
+                        {{ $karyawan->karyawan->jumlah_cuti - $cuti->jumlah_hari_cuti_reject }}
+                        @elseif($cuti->status = 'pending')
+                        {{ $karyawan->karyawan->jumlah_cuti - $cuti->jumlah_hari_cuti_pending }}
+                        @else
+                        {{ $karyawan->karyawan->jumlah_cuti - $cuti->jumlah_hari_cuti }}
+                        @endif
+                    </li>
+                    {{-- PR = jumlah cuti belum sesuai --}}
                 </ul>
             </div>
         </div>
     </div>
 </div>
+@endif
 @endsection
