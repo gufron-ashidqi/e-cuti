@@ -9,6 +9,10 @@ use App\Http\Controllers\PengajuanCutiController;
 use App\Http\Controllers\ApprovalCutiController;
 use App\Models\Divisi;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\RiwayatCutiController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +57,10 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/karyawan/{karyawan}', [KaryawanController::class, 'destroy']);
 
     Route::resource('pengajuan-cuti', PengajuanCutiController::class);
+
+    Route::get('/laporan', [LaporanController::class, 'index']);
+    
+
 });
 
 Route::group(['middleware' => ['auth']], function () {
@@ -60,6 +68,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('approval-cuti', [ApprovalCutiController::class, 'index']);
     Route::get('approval-cuti/{id}', [PengajuanCutiController::class, 'approve']);
     Route::get('reject-cuti/{id}', [PengajuanCutiController::class, 'reject']);
+    Route::get('/riwayat-cuti', [RiwayatCutiController::class, 'index']);
+
 
     
 });

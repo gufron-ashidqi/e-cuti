@@ -9,6 +9,8 @@ use App\Models\JenisCuti;
 use Illuminate\Http\Request;
 use Auth;
 use Carbon\Carbon;
+// use Illuminate\Support\Facades\Auth;
+
 
 class PengajuanCutiController extends Controller
 {
@@ -17,9 +19,18 @@ class PengajuanCutiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $pengajuan_cuti = PengajuanCuti::all();
+        $userId = Auth::id();
+        
+        // dd($userId);// Ambil ID user yang login
+
+        // Ambil pengajuan cuti milik user yang login
+        $pengajuan_cuti = PengajuanCuti::where('user_id', $userId)->get();
+
+        // dd($pengajuan_cuti);
+
         return view('pengajuan_cuti.index', compact('pengajuan_cuti'));
     }
 
@@ -82,6 +93,7 @@ class PengajuanCutiController extends Controller
 
         // Simpan pengajuan cuti jika validasi lolos
         PengajuanCuti::create([
+            'user_id' => Auth::user()->id,
             'jenis_cuti_id' => $request->jenis_cuti_id,
             'tanggal_mulai' => $request->tanggal_mulai,
             'tanggal_akhir' => $request->tanggal_akhir,

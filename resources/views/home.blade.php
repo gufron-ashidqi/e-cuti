@@ -12,6 +12,67 @@
     </div>
 </div>
 
+    <!-- Main content -->
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>12</h3>
+
+              <p>Sisa Cuti</p>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>1</h3>
+
+              <p>Cuti Diterima</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>2</h3>
+
+              <p>Menunggu Persetujuan</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>1</h3>
+
+              <p>Ditolak</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+
+    
+
 @if (Auth::user()->role == 4)
 <div class="row">
     <div class="col-md-12">
@@ -21,11 +82,11 @@
             </div>
             <div class="box-body">
                 <ul>
-                    <li> Nama : {{ $karyawan->karyawan->nama }} </li>
-                    <li> NIK : {{ $karyawan->karyawan->nik }} </li>
-                    <li> Tanggal Masuk : {{ $karyawan->karyawan->tanggal_masuk }} </li>
+                    <li> Nama : {{ $karyawan->karyawan->nama ?? ''}} </li>
+                    <li> NIK : {{ $karyawan->karyawan->nik ?? ''}} </li>
+                    <li> Tanggal Masuk : {{ $karyawan->karyawan->tanggal_masuk ??''}} </li>
                     <li> Sisa Cuti : 
-                        {{ $karyawan->karyawan->jumlah_cuti }}
+                        {{ $karyawan->karyawan->jumlah_cuti ??'' }}
                     </li>
                 </ul>
             </div>

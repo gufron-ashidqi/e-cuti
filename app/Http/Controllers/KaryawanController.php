@@ -58,7 +58,7 @@ class KaryawanController extends Controller
             'tanggal_masuk' => $request->tanggal_masuk,
             'divisi_id' => $request->divisi_id,
             'telepon' => $request->telepon,
-            'jumlah_cuti' => 6
+            'jumlah_cuti' => 12
         ]);
 
         // dd($karyawan);
@@ -122,6 +122,12 @@ class KaryawanController extends Controller
             'divisi_id' => $request->divisi_id,
             'telepon' => $request->telepon,
         ]);
+
+        if ($karyawan->user) {
+        $karyawan->user->update([
+            'name' => $request->nama
+        ]);
+    }
 
         alert()->success('Sukses','Data berhasil disimpan!');
         return redirect('/karyawan');
