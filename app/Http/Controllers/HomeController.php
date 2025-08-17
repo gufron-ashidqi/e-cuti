@@ -28,7 +28,11 @@ class HomeController extends Controller
     {
         $cuti = PengajuanCuti::where('karyawan_id', Auth::user()->karyawan_id)->first();
         $karyawan = User::where('karyawan_id', Auth::user()->karyawan_id)->first();
-        // dd($karyawan);
-        return view('home', compact('karyawan', 'cuti'));
+        $pengajuan_diterima = PengajuanCuti::where('karyawan_id', Auth::user()->karyawan_id)->where('status', 'approved')->count();
+        $pengajuan_pending = PengajuanCuti::where('karyawan_id', Auth::user()->karyawan_id)->where('status', 'pending')->count();
+        $pengajuan_ditolak = PengajuanCuti::where('karyawan_id', Auth::user()->karyawan_id)->where('status', 'reject')->count();
+
+
+        return view('home', compact('karyawan', 'cuti', 'pengajuan_diterima', 'pengajuan_pending', 'pengajuan_ditolak'));
     }
 }

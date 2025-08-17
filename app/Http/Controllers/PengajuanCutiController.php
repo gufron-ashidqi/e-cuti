@@ -100,6 +100,8 @@ class PengajuanCutiController extends Controller
             'keterangan' => $request->keterangan,
             'karyawan_id' => $karyawan->id,
             'status' => 'pending',
+            'approve_by' => '0',
+
         ]);
 
         return redirect('/pengajuan-cuti')->with('status', 'Data berhasil disimpan!');
@@ -139,16 +141,6 @@ class PengajuanCutiController extends Controller
         //
     }
 
-    // public function approve(Request $request, $id)
-    // {
-    //     PengajuanCuti::find($id)->update([
-    //         'status' => 'approved',
-
-    //     ]);
-
-    //     return redirect('/approval-cuti')->with('status', 'Data berhasil ubah!');
-    // }
-
     public function approve(Request $request, $id)
     {
         // Temukan pengajuan cuti berdasarkan id
@@ -162,6 +154,7 @@ class PengajuanCutiController extends Controller
         // Update status pengajuan cuti ke 'approved'
         $pengajuanCuti->update([
             'status' => 'approved',
+            'approve_by' => Auth::user()->name
         ]);
 
         // Ambil jumlah hari cuti yang diambil

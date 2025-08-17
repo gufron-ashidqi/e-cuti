@@ -47,7 +47,7 @@
                                     <td>{{ $item->tanggal_akhir }}</td>
                                     <td>{{ $item->jumlah_hari_cuti }}</td>
                                     <td>{{ $item->keterangan }}</td>
-                                    <td>{{ $item->status }}</td>
+                                    <td>{{ $item->status }} by {{ $item->approve_by ? : '' }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('pengajuan_cuti', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('karyawan_id')->unsigned();
             $table->bigInteger('jenis_cuti_id')->unsigned();
+            $table->bigInteger('approve_by')->unsigned();
             $table->date('tanggal_mulai');
             $table->date('tanggal_akhir');
             $table->text('keterangan');

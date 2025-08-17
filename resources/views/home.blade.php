@@ -20,7 +20,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>12</h3>
+              <h3>{{ $karyawan->karyawan->jumlah_cuti ??'' }}</h3>
 
               <p>Sisa Cuti</p>
             </div>
@@ -31,7 +31,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>1</h3>
+              <h3>{{ $pengajuan_diterima }}</h3>
 
               <p>Cuti Diterima</p>
             </div>
@@ -45,7 +45,7 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>2</h3>
+            <h3>{{ $pengajuan_pending}}</h3>
 
               <p>Menunggu Persetujuan</p>
             </div>
@@ -59,7 +59,7 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>1</h3>
+              <h3>{{ $pengajuan_ditolak }}</h3>
 
               <p>Ditolak</p>
             </div>
@@ -82,12 +82,8 @@
             </div>
             <div class="box-body">
                 <ul>
-                    <li> Nama : {{ $karyawan->karyawan->nama ?? ''}} </li>
                     <li> NIK : {{ $karyawan->karyawan->nik ?? ''}} </li>
                     <li> Tanggal Masuk : {{ $karyawan->karyawan->tanggal_masuk ??''}} </li>
-                    <li> Sisa Cuti : 
-                        {{ $karyawan->karyawan->jumlah_cuti ??'' }}
-                    </li>
                 </ul>
             </div>
         </div>
