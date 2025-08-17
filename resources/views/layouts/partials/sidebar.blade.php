@@ -39,11 +39,13 @@
                 </a>
             </li>
 
+            @if (Auth::user()->role != 1)
             <li class="{{ Request::is('pengajuan-cuti') ? 'active' : '' }}">
                 <a href="{{ url('/pengajuan-cuti') }}">
                     <i class="fa fa-clipboard"></i> <span>Pengajuan cuti</span>
                 </a>
             </li>
+            @endif
 
             <li class="">
                 <a href="{{ url('/laporan') }}">

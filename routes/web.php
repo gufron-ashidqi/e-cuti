@@ -38,10 +38,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/dashboard', function() {
-    return view('layouts.main');
-});
-
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/divisi', [DivisiController::class, 'index']);
     Route::get('/divisi/tambah', [DivisiController::class, 'tambah']);
@@ -56,11 +52,8 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::resource('karyawan', KaryawanController::class);
     Route::get('/karyawan/{karyawan}', [KaryawanController::class, 'destroy']);
 
-    Route::resource('pengajuan-cuti', PengajuanCutiController::class);
-
     Route::get('/laporan', [LaporanController::class, 'index']);
     
-
 });
 
 Route::group(['middleware' => ['auth']], function () {
@@ -69,7 +62,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('approval-cuti/{id}', [PengajuanCutiController::class, 'approve']);
     Route::get('reject-cuti/{id}', [PengajuanCutiController::class, 'reject']);
     Route::get('/riwayat-cuti', [RiwayatCutiController::class, 'index']);
-
-
     
 });

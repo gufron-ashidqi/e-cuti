@@ -7,10 +7,8 @@ use App\Models\Karyawan;
 use App\Models\User;
 use App\Models\JenisCuti;
 use Illuminate\Http\Request;
-use Auth;
 use Carbon\Carbon;
-// use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Auth;
 
 class PengajuanCutiController extends Controller
 {
@@ -24,8 +22,6 @@ class PengajuanCutiController extends Controller
     {
         $userId = Auth::id();
         
-        // dd($userId);// Ambil ID user yang login
-
         // Ambil pengajuan cuti milik user yang login
         $pengajuan_cuti = PengajuanCuti::where('user_id', $userId)->get();
 
@@ -87,9 +83,6 @@ class PengajuanCutiController extends Controller
             alert()->error('Error','Jumlah hari cuti yang diajukan melebihi sisa cuti yang tersedia.');
             return redirect()->back();
         }
-
-        // dd($request);
-
 
         // Simpan pengajuan cuti jika validasi lolos
         PengajuanCuti::create([

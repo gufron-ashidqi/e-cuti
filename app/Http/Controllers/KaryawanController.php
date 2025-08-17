@@ -19,7 +19,6 @@ class KaryawanController extends Controller
     public function index()
     {
         $karyawan = Karyawan::all();
-        // dd($karyawan);
         return view('karyawan.index', compact('karyawan'));
     }
 
@@ -52,7 +51,6 @@ class KaryawanController extends Controller
         ]);
 
         $karyawan = Karyawan::create([
-            // 'user_id' => Auth::user()->id,
             'nama' => $request->nama,
             'nik' => $request->nik,
             'tanggal_masuk' => $request->tanggal_masuk,
@@ -67,7 +65,7 @@ class KaryawanController extends Controller
             'karyawan_id' => $karyawan->id,
             'name' => $karyawan->nama,
             'email' => $karyawan->nik . '@gmail.com',
-            'password' => Hash::make('user1234'),
+            'password' => Hash::make('123456'),
             'role' => 4
         ]);
 

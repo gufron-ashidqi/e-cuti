@@ -18,11 +18,11 @@ return new class extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('karyawan_id')->unsigned();
             $table->bigInteger('jenis_cuti_id')->unsigned();
-            $table->bigInteger('approve_by')->unsigned();
+            $table->string('approve_by', 50);
             $table->date('tanggal_mulai');
             $table->date('tanggal_akhir');
             $table->text('keterangan');
-            $table->string('status');
+            $table->string('status', 25);
             $table->timestamps();
         });
     }

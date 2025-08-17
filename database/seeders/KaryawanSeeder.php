@@ -19,8 +19,8 @@ class KaryawanSeeder extends Seeder
         DB::table('karyawan')->insert([
             [
                 'divisi_id' => 1,
-                'nama' => 'gufron sodikin',
-                'nik' => '12345',
+                'nama' => 'Gufron Asidqi',
+                'nik' => '123456',
                 'telepon' => '08888946324',
                 'jumlah_cuti' => '12',
                 'tanggal_masuk' => '2023-04-25',
@@ -28,9 +28,9 @@ class KaryawanSeeder extends Seeder
             ],
             [
                 'divisi_id' => 1,
-                'nama' => 'jordan',
-                'nik' => '22345',
-                'telepon' => '088884533233',
+                'nama' => 'Agung Permana Dev',
+                'nik' => '223456',
+                'telepon' => '085319166215',
                 'jumlah_cuti' => '12',
                 'tanggal_masuk' => '2025-04-01',
 
